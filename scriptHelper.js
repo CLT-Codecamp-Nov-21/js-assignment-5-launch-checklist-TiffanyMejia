@@ -86,8 +86,7 @@ cargoLevel = Number(cargoLevel);
     
     if(cargoLevel < 10000) {
         cargoStatus.innerHTML = "Cargo mass low enough for launch";
-        launchStatus.style.color = "rgb(65, 159, 106)";
-        launchStatus.innerHTML = "Shuttle is Ready for Launch";
+        
     }
 
     //make launch status visible
