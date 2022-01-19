@@ -71,32 +71,33 @@ cargoLevel = Number(cargoLevel);
 
 //launch status, ready or not ready
 
+let canLaunch = true;
+
 if (fuelLevel < 10000) {
     fuelStatus.innerHTML = "Fuel level too low for launch";
-    launchStatus.innerHTML = "Shuttle Not Ready for Launch";
-    launchStatus.style.color = "rgb(199, 37, 78)";
-}
-
-if (cargoLevel > 10000) {
-    cargoStatus.innerHTML = "Cargo mass too heavy for launch";
-    launchStatus.innerHTML = "Shuttle Not Ready for Launch";
-    launchStatus.style.color = "rgb(199, 37, 78)";
-  
-}
-
-if (fuelLevel > 10000) {
+    canLaunch = false;
+    
+}else{
     fuelStatus.innerHTML = "Fuel level high enough for launch";
-}
+    }
 
-if (cargoLevel < 10000) {
+if(cargoLevel > 10000) {
+    cargoStatus.innerHTML = "Cargo mass too heavy for launch";
+    canLaunch = false;
+
+} else {
     cargoStatus.innerHTML = "Cargo mass low enough for launch";
 }
 
-if (fuelLevel > 10000 && cargoLevel < 10000) {
+if (canLaunch) {
     launchStatus.innerHTML = "Shuttle is Ready for Launch";
     launchStatus.style.color = "rgb(65, 159, 106)";
-
+} else {
+    launchStatus.innerHTML = "Shuttle Not Ready for Launch";
+    launchStatus.style.color = "rgb(199, 37, 78)";
 }
+
+
    list.style.visibility = "visible";
 
 }
